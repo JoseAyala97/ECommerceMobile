@@ -66,7 +66,6 @@ namespace ECommerceMobile.Identity.Services
                     throw;
                 }
         }
-
         public async Task<RegistrationResponse> Register(RegistrationRequest request)
         {
             using (var transaction = await _context.Database.BeginTransactionAsync())

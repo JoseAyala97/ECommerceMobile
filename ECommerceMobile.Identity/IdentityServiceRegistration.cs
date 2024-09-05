@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -19,8 +20,10 @@ namespace ECommerceMobile.Identity
             services.Configure<JWTSettings>(configuration.GetSection("JwtSettings"));
 
             services.AddDbContext<ECommerceMobileIdentityDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("IdentityConnectionString"),
-                b => b.MigrationsAssembly(typeof(ECommerceMobileIdentityDbContext).Assembly.FullName)));
+                options.UseNpgsql(configuration.GetConnectionString("IdentityConnectionString"),
+                b => b.MigrationsAssembly(typeof(ECommerceMobileIdentityDbContext).Assembly.FullName))
+                .LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }, LogLevel.Information)
+                .EnableSensitiveDataLogging());
 
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
