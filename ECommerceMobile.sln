@@ -29,6 +29,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{3604B391-6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{BAB4B945-9142-4263-BE1D-5F58A932CF1C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerceMobile.Identity", "ECommerceMobile.Identity\ECommerceMobile.Identity.csproj", "{E5EE2981-1501-4861-98BE-F411572F2FC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{A2AAD432-E960-4E48-BE96-46D85CD742F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2AAD432-E960-4E48-BE96-46D85CD742F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2AAD432-E960-4E48-BE96-46D85CD742F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5EE2981-1501-4861-98BE-F411572F2FC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5EE2981-1501-4861-98BE-F411572F2FC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5EE2981-1501-4861-98BE-F411572F2FC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5EE2981-1501-4861-98BE-F411572F2FC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +69,7 @@ Global
 		{F431C4FD-5762-4584-993D-619C89ADB9CD} = {F8B515DF-6D7B-463D-9EFF-7F4EFA435B9D}
 		{3604B391-6B48-474A-B96B-8E7B60C3EAEC} = {F8B515DF-6D7B-463D-9EFF-7F4EFA435B9D}
 		{BAB4B945-9142-4263-BE1D-5F58A932CF1C} = {F8B515DF-6D7B-463D-9EFF-7F4EFA435B9D}
+		{E5EE2981-1501-4861-98BE-F411572F2FC3} = {BAB4B945-9142-4263-BE1D-5F58A932CF1C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {78B24531-41CE-4461-B391-0FBE96D0B616}
