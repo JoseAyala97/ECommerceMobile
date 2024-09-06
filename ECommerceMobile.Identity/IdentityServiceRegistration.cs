@@ -20,7 +20,7 @@ namespace ECommerceMobile.Identity
             services.Configure<JWTSettings>(configuration.GetSection("JwtSettings"));
 
             services.AddDbContext<ECommerceMobileIdentityDbContext>(options =>
-                options.UseNpgsql(configuration.GetConnectionString("IdentityConnectionString"),
+                options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"),
                 b => b.MigrationsAssembly(typeof(ECommerceMobileIdentityDbContext).Assembly.FullName))
                 .LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }, LogLevel.Information)
                 .EnableSensitiveDataLogging());

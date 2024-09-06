@@ -1,4 +1,6 @@
 using ECommerceMobile.Identity;
+using ECommerceMobile.Infrastructure;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.ConfigureIdentityServices(builder.Configuration);
 
 builder.Services.AddCors(options =>
