@@ -1,4 +1,6 @@
-﻿using ECommerceMobile.Infrastructure.Persistence;
+﻿using ECommerceMobile.Application.Contracts.Persistence;
+using ECommerceMobile.Infrastructure.Persistence;
+using ECommerceMobile.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,6 +14,9 @@ namespace ECommerceMobile.Infrastructure
             services.AddDbContext<ECommerceMobileDbContext>(options =>
             options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"))
             );
+            
+            services.AddScoped(typeof(IAsyncRepository<>), typeof(RepositoryBase<>));
+            services.AddScoped<IProductRepository, ProductRepository>();
 
             return services;
         }
