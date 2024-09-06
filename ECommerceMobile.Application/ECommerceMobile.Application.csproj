@@ -18,4 +18,10 @@
     <ProjectReference Include="..\ECommerceMobile.Domain\ECommerceMobile.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Products\Commands\DeleteProduct\" />
+    <Folder Include="Features\Products\Commands\UpdateProduct\" />
+    <Folder Include="Features\Products\Queries\GetProductList\" />
+  </ItemGroup>
+
 </Project>
