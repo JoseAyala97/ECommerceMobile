@@ -1,4 +1,5 @@
 ﻿using ECommerceMobile.Application.Features.Products.Commands.CreateProduct;
+using ECommerceMobile.Application.Features.Products.Commands.UpdateProduct;
 using ECommerceMobile.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -16,10 +17,17 @@ namespace ECommerceMobile.API.Controllers
             _mediator = mediator;
         }
 
-        [HttpPost]
+        [HttpPost(Name ="Create")]
         public async Task<ActionResult<ProductVm>> CreateProduct([FromBody]CreateProductCommand command)
         {
             return await _mediator.Send(command);
+        }
+        [HttpPut("{id}",Name = "Update")]
+        public async Task<ActionResult> UpdateProduct(int id, [FromBody]UpdateProductCommand command)
+        {
+            command.Id = id;
+            await _mediator.Send(command);
+            return NoContent();
         }
     }
 }
