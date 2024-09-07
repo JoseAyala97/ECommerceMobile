@@ -1,4 +1,5 @@
 ﻿using ECommerceMobile.Application.Features.Products.Commands.CreateProduct;
+using ECommerceMobile.Application.Features.Products.Commands.DeleteProduct;
 using ECommerceMobile.Application.Features.Products.Commands.UpdateProduct;
 using ECommerceMobile.Domain.Entities;
 using MediatR;
@@ -27,6 +28,13 @@ namespace ECommerceMobile.API.Controllers
         {
             command.Id = id;
             await _mediator.Send(command);
+            return NoContent();
+        }
+        [HttpDelete("{id}",Name = "Delete")]
+        public async Task<ActionResult> DeleteProduct(int id)
+        {
+            var product = new DeleteProductCommand { Id = id };
+            await _mediator.Send(product);
             return NoContent();
         }
     }
