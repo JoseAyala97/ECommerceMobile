@@ -28,7 +28,7 @@ namespace ECommerceMobile.Application.Features.Products.Commands.CreateProduct
 
         public async Task<ProductVm> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
-            string imageUrl = null;
+            string? imageUrl = null;
 
             if (!string.IsNullOrEmpty(request.Image))
             {
@@ -37,10 +37,17 @@ namespace ECommerceMobile.Application.Features.Products.Commands.CreateProduct
                 imageUrl = await _cloudinaryService.UploadImageAsync(imageStream, "product-image");
             }
 
-            var productEntity = _mapper.Map<Product>(request);
-            productEntity.Image = imageUrl; 
+            var productEntity = new Product
+            {
+                Name = request.Name ?? string.Empty,
+                Description = request.Description ?? string.Empty,
+                Category = request.Category ?? string.Empty,
+                Image = imageUrl ?? string.Empty,
+                Price = request.Price ?? 0
+            };
+
             var newProduct = await _productRepository.AddAsync(productEntity);
-            _logger.LogInformation($"El producto {request.Name} fue creado exitosamente.");
+            _logger.LogInformation($"El producto {productEntity.Name} fue creado exitosamente.");
             return _mapper.Map<ProductVm>(newProduct);
         }
     }
